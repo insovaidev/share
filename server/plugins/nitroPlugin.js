@@ -12,11 +12,11 @@ export default defineNitroPlugin((nitroApp) => {
       <meta name="title", content="TMy Amazing Site">
       <meta name="description", content="This is my amazing site, let me tell you all about it.">
       <meta property="og:url" content="https://stately-squirrel-915b70.netlify.app/tweeter">
-      <meta property="og:image", content="https://images.khmer24.co/24-09-06/dog-labubu-629490172558715920146508-b.jpg">
+      <meta property="og:image", content="https://images.khmer24.co/24-04-23/111248-business-house-for-rent-on-main-road-way-to-angkor-wat-1713857765-79938271-b.jpg">
       <meta name="twitter:card", content="summary">
       <meta name="twitter:title", content="My Amazing Site" >
       <meta name="twitter:description", content="This is my amazing site, let me tell you all about it" >
-      <meta name="twitter:image", content="https://images.khmer24.co/24-09-06/dog-labubu-629490172558715920146508-b.jpg" >
+      <meta name="twitter:image", content="https://images.khmer24.co/24-04-23/111248-business-house-for-rent-on-main-road-way-to-angkor-wat-1713857765-79938271-b.jpg" >
     `);
 
    //  if (!isMobile) {
