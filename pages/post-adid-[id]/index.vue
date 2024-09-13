@@ -33,6 +33,7 @@ useSeoMeta({
   twitterDescription: dataPostDetial.value?.meta?.title ?? '',
   twitterImage: dataPostDetial.value?.meta?.image ?? '',
   twitterCard: 'summary',
+  
 })
 
 
@@ -43,7 +44,7 @@ const { data: dataPostRespone } = await useFetch(`${baseApiUrl}api/posts/${id}`)
 
 dataPostDetial.value = dataPostRespone.value
 
-console.log('serve side', dataPostDetial.value.meta)
+// console.log('serve side', dataPostDetial.value.meta)
 
 // const getPostDetail = async () => {
 //    try {
@@ -79,5 +80,25 @@ const share = async (post) => {
     alert("Sharing not supported in your browser");
   }
 };
+
+const getArticlesRoutes = async () => {
+  const url = "https://test-post-share-api.onrender.com";
+  const posts = await $fetch(url + "/api/posts");
+  const routes = [] 
+  posts.map((post) => {
+    routes.push(`/posdt-adid-${post.data.id}`)
+  });
+
+  return routes
+};
+
+onMounted(async () => {
+  const res = await getArticlesRoutes()
+  
+  console.log(res)
+
+})
+
+
 
 </script>
