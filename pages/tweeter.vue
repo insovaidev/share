@@ -2,7 +2,6 @@
    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus voluptas cum odio reiciendis? Repellendus dignissimos omnis debitis aut ut? Accusantium laboriosam alias molestiae distinctio, facere minus error tempora soluta perferendis.</p>
 </template>
 
-
 <script setup>
 useSeoMeta({
   title: 'My Amazing Site',
