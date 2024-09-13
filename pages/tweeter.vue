@@ -8,7 +8,7 @@ useSeoMeta({
   ogTitle: 'My Amazing Site Tweeter',
   ogDescription: 'This is my amazing site, let me tell you all about it. Tweeter',
   ogImage: 'https://images.khmer24.co/24-04-23/111248-business-house-for-rent-on-main-road-way-to-angkor-wat-1713857765-79938271-b.jpg',
-  ogUrl: 'https://stately-squirrel-915b70.netlify.app/tweeter', 
+  ogUrl: 'https://test-share-seo.netlify.app/tweeter', 
   twitterTitle: 'My Amazing Site Tweeter',
   twitterDescription: 'This is my amazing site, let me tell you all about it Tweeter',
   twitterImage: 'https://images.khmer24.co/24-04-23/111248-business-house-for-rent-on-main-road-way-to-angkor-wat-1713857765-79938271-b.jpg',
