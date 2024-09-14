@@ -1,15 +1,15 @@
 
-const getArticlesRoutes = async () => {
-  const url = "https://test-post-share-api.onrender.com";
-  const res = await fetch(url + "/api/posts");
-  const posts = await res.json()
-  const routes = [] 
-  posts.map((post) => {
-    routes.push(`/post-adid-${post.data.id}`)
-  });
+// const getArticlesRoutes = async () => {
+//   const url = "https://test-post-share-api.onrender.com";
+//   const res = await fetch(url + "/api/posts");
+//   const posts = await res.json()
+//   const routes = [] 
+//   posts.map((post) => {
+//     routes.push(`/post-adid-${post.data.id}`)
+//   });
 
-  return routes
-};
+//   return routes
+// };
 
 
 export default defineNuxtConfig({
@@ -19,15 +19,15 @@ export default defineNuxtConfig({
     port: 5555
   },
 
-  hooks: {
-    async "nitro:config"(nitroConfig) {
-      if (nitroConfig.dev && !process.argv?.includes("generate")) { return }
+  // hooks: {
+  //   async "nitro:config"(nitroConfig) {
+  //     if (nitroConfig.dev && !process.argv?.includes("generate")) { return }
       
-      const routes = await getArticlesRoutes();
+  //     const routes = await getArticlesRoutes();
 
-      nitroConfig.prerender?.routes?.push(...routes);
-    }
-  },
+  //     nitroConfig.prerender?.routes?.push(...routes);
+  //   }
+  // },
 
   devtools: { enabled: true },
 

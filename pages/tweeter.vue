@@ -14,4 +14,5 @@ useSeoMeta({
   twitterImage: 'https://images.khmer24.co/24-04-23/111248-business-house-for-rent-on-main-road-way-to-angkor-wat-1713857765-79938271-b.jpg',
   twitterCard: 'summary',
 })
+
 </script>

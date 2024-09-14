@@ -33,7 +33,8 @@ useSeoMeta({
   twitterDescription: dataPostDetial.value?.meta?.title ?? '',
   twitterImage: dataPostDetial.value?.meta?.image ?? '',
   twitterCard: 'summary',
-  
+  ogImageWidth: 1200,  
+  ogImageHeight: 630
 })
 
 
