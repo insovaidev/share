@@ -4,8 +4,8 @@
 
 <script setup>
 useSeoMeta({
-  title: 'My Amazing Site Tweeter',
-  ogTitle: 'My Amazing Site Tweeter',
+  title: 'My Amazing Site Tweeter just edit',
+  ogTitle: 'My Amazing Site Tweeter just edit',
   ogDescription: 'This is my amazing site, let me tell you all about it. Tweeter',
   ogImage: 'https://images.khmer24.co/24-04-23/111248-business-house-for-rent-on-main-road-way-to-angkor-wat-1713857765-79938271-b.jpg',
   ogUrl: 'https://test-share-seo.netlify.app/tweeter', 
@@ -13,6 +13,8 @@ useSeoMeta({
   twitterDescription: 'This is my amazing site, let me tell you all about it Tweeter',
   twitterImage: 'https://images.khmer24.co/24-04-23/111248-business-house-for-rent-on-main-road-way-to-angkor-wat-1713857765-79938271-b.jpg',
   twitterCard: 'summary',
+  ogImageWidth: 1200,  
+  ogImageHeight: 630
 })
 
 </script>
