@@ -1,36 +1,35 @@
 <template>
   <div class="p-4">
-    <pre class="absolute bg-white">{{ supportedPorperties }}</pre>
-    <div :key="post" v-for="post in dataPosts" class="list_post">
-      <div
-        @click="toDetail(post.data.title, post.data.id)"
-        class="border-[1px] rounded-md mb-2 p-2"
-      >
-        <p>{{ post.data.id }}</p>
-        <p>{{ post.data.title }}</p>
-      </div>
-      <button @click="share(post)">Shere</button>
-      
+    <div
+      :key="post"
+      v-for="post in dataPosts"
+      class="list_post"
+    >
+    
+    <div @click="toDetail(post.data.title, post.data.id)" class="border-[1px] rounded-md mb-2 p-2">
+      <p>{{ post.data.id }}</p>
+      <p>{{ post.data.title }}</p>
+    </div>
+
+    <div class="gap-3">
+      <button class="border-[1px] border-gray-500 rounded-md px-3 py-1" @click="share(post)">Shere</button>
+      <button  class="border-[1px] border-gray-500 rounded-md px-3 py-1" @click="shareToX(post.data.short_link)">shareToX</button>
+      <button class="border-[1px] border-gray-500 rounded-md px-3 py-1" @click="shareLinkToFacebook(post.data.short_link)">shareLinkToFacebook</button>
+    </div>
     </div>
   </div>
 </template>
- 
-<script setup>
-const baseApiUrl = `https://api-posts.khmer24.com/`;
+
+   <script setup>
+const baseApiUrl = `https://test-post-share-api.onrender.com/`;
 const router = useRouter();
 const dataPosts = ref([]);
-const { isDesktop: isDesktopUseDevice, isMobile } = useDevice() 
-const screenNavigateShare = ref(false) 
-let resultCheck = false
-const errorShare = ref()
-const supportedPorperties = ref('')
-
 
 const getPosts = async () => {
   try {
-    const res = await $fetch(`${baseApiUrl}feed?fields=link&meta=true`);
+    const res = await $fetch(`${baseApiUrl}api/posts`);
     if (res) {
-      dataPosts.value = res.data;
+      dataPosts.value = res;
     }
   } catch (error) {
     console.error(error);
@@ -38,121 +37,66 @@ const getPosts = async () => {
 };
 
 const toDetail = (title, id) => {
-  router.push({ name: "khmer24-title-adid-id", params: { title: title, id: id } });
+  router.push({ name: "test-share-adid-id", params: { id: id } });
 };
 
-const share1 = async (post) => {
-  let title = post.data.title || ""
-  let text = "Best selling website in cambo!"
-  let url = post.data.short_link || ""
+const share = async (post) => {
+  if (navigator.share) {
+    try {
+      const dataShare = {
+        title: post.data.title || "",
+        text: "Check out this amazing content!",
+        url: post.data.short_link || "",
+      };
 
-  await checkScreenUserAgent()
-
-  if (resultCheck) {
-    if (navigator.canShare) {
-      try {
-        await navigator.share({
-          title: title,
-          text: text,
-          url: url
-        });
-        console.log("Content shared successfully!");
-      
-      } catch (error) {
-        alert("Error sharing:", error);
-      }
-    } else {
-      alert("Sharing not supported in your browser");
-    }
-
-  } else {
-    alert('Show desktop Modal!')
-  }
-};
-
-async function checkScreenUserAgent() {
-  const toMatch = [
-    /Android/i,
-    /webOS/i,
-    /iPhone/i,
-    /iPad/i,
-    /iPod/i,
-    /BlackBerry/i,
-    /Windows Phone/i
-  ];
-
-  const userAgent = navigator.userAgent
-
-  toMatch.forEach((ele) => {
-    if (userAgent.match(ele)) return resultCheck = true
-  })
-}
-
-const share = (data) => {
-
-  // console.log(window.location.origin)
-
-  let url = data.data.short_link.replace('https://www.khmer24.com', window.location.origin);
-  
-  // Data to share
-  const shareData = {
-    title: data.data.title + " Cambodia on Khmer24.com ",
-    // text: data.data.title,
-    url: url,
-  };
-
-
-
-  // Check if the browser supports sharing some or all of these properties
-  if (navigator.canShare) {
-    const supported = {};
-
-    // Check for each property individually
-    if (navigator.canShare({ title: shareData.title })) {
-      supported.title = shareData.title;
-    }
-
-    if (navigator.canShare({ text: shareData.text })) {
-      supported.text = shareData.text;
-    }
-
-    if (navigator.canShare({ url: shareData.url })) {
-      supported.url = shareData.url;
-    }
-
-    // This is useful for debugging or displaying which properties are supported
-    supportedPorperties.value = supported;
-
-
-    // Share only if at least one supported property is present
-    if (Object.keys(supported).length > 0) {
-      navigator.share(shareData).then(() => {
-        console.log('Data shared successfully!');
-      }).catch((error) => {
-        console.error('Error sharing:', error);
+      await navigator.share({
+        ...dataShare,
       });
-    } else {
-      console.log('No supported share properties.');
+      console.log("Content shared successfully!");
+    } catch (error) {
+      console.error("Error sharing:", error);
     }
   } else {
-    console.log('Web Share API not supported.');
+    alert("Sharing not supported in your browser");
   }
 };
 
+const shareToX = (uri) => {
+  try {
+    if (window.navigator.onLine) {
+      let url = uri
+      window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(''+url+''),'facebook-share-dialog','width=626,height=436');
+      return false;
+    } else {
+      return $('#modal_show_statu_error_connection').modal('show');
+    }
+  } catch (error) {
+    
+  }
+} 
 
 
+const shareLinkToFacebook = (uri) => {
+  try {
+    if (window.navigator.onLine) {
+      let url = uri
+      window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(''+url+''),'facebook-share-dialog','width=626,height=436');
+      return false;
+  } else {
+      return $('#modal_show_status_error_connection').modal('show');
+  }
+  } catch (error) {
+    
+  }
+} 
 
 onMounted(() => {
-  checkScreenUserAgent()
   getPosts();
   console.log("Console me");
-  
-  console.log(checkUserAgent())
-
 });
 </script>
- 
-<style >
+
+   <style >
 .list_post {
   position: relative;
   border: 1px solid lightblue;
@@ -161,4 +105,3 @@ onMounted(() => {
   border-radius: 8px;
 }
 </style>
- 
