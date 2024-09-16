@@ -20,19 +20,18 @@ const dataPostDetial = useState('dataPostDetial', () => '')
 const baseApiUrl = `https://test-post-share-api.onrender.com/`
 
 useSeoMeta({
-  title: dataPostDetial.value?.meta?.title ?? '',
-  ogTitle: dataPostDetial.value?.meta?.title ?? '',
-  ogDescription: dataPostDetial.value?.meta?.title ?? '',
-  ogImage: dataPostDetial.value?.meta?.image ?? '',
-  ogUrl: dataPostDetial.value?.meta?.url ?? '', 
-  twitterTitle: dataPostDetial.value?.meta?.title ?? '',
-  twitterDescription: dataPostDetial.value?.meta?.title ?? '',
-  twitterImage: dataPostDetial.value?.meta?.image ?? '',
+  title: () => `title: ${dataPostDetial.value?.meta?.title ?? ''}`,
+  ogTitle: () => `ogTitle: ${dataPostDetial.value?.meta?.title ?? ''}`,
+  ogDescription: () => `ogDescription: ${dataPostDetial.value?.meta?.title ?? ''}`,
+  ogImage: () => `ogImage: ${dataPostDetial.value?.meta?.image ?? ''}`,
+  ogUrl: () => `ogUrl: ${dataPostDetial.value?.meta?.url ?? ''}`,
+  twitterTitle: () => `twitterTitle: ${dataPostDetial.value?.meta?.title ?? ''}`,
+  twitterDescription: () => `twitterDescription: ${dataPostDetial.value?.meta?.title ?? ''}`,
+  twitterImage: () => `twitterImage: ${dataPostDetial.value?.meta?.image ?? ''}`,
   twitterCard: 'summary',
   ogImageWidth: 1200,  
   ogImageHeight: 630
 })
-
 
 
 const id = route.params.id
