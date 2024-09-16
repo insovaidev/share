@@ -5,7 +5,6 @@
     <img :src="dataPostDetial?.meta?.image ?? ''" alt="">
     <img src="https://images.khmer24.co/24-09-04/scoopy-i-015--775039172541923673824722-b.jpg" alt="">
     <pre>{{ dataPostDetial?.meta ?? ''}}</pre>
-
   </div>
 </template>
 
@@ -13,9 +12,7 @@
 
 const route = useRoute()
 
-
 onMounted(() => {
-  
   console.log()
 })
 
@@ -36,10 +33,6 @@ useSeoMeta({
   ogImageHeight: 630
 })
 
-
-
-
-       
 
 
 const id = route.params.id
@@ -101,6 +94,5 @@ onMounted(async () => {
   const res = await getArticlesRoutes()
   console.log(res)
 })
-
 
 </script>
