@@ -46,11 +46,10 @@ useSeoMeta({
   ogTitle: () => `${dataPostDetial.value?.meta?.title ?? new Date().getTime()}`,
   description: () => 'This is my amazing site, let me tell you all about it.',
   ogDescription: () => 'This is my amazing site, let me tell you all about it.',
-  ogUrl: () => `${ dataPostDetial.value?.meta?.url ?? '' }`, 
+  ogUrl: () => `https://test-share-seo.netlify.app/test2-share`, 
   ogImage: () => `${ dataPostDetial.value?.meta?.image ?? '' }`,
   twitterCard: () => 'summary_large_image',
 })
-
 
 
 
