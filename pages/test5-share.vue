@@ -12,7 +12,7 @@
       <Meta name="twitter:site" content="https://test-share-seo.netlify.app/test5-share" />
       <Meta name="twitter:title" :content=contentTitle />
       <Meta name="twitter:description" content="Senior Selachimorpha at DigitalOcean Edit" />
-      <Meta name="twitter:image" content="https://images.khmer24.co/24-09-04/scoopy-i-015--775039172541923673824722-b.jpg" />
+      <Meta name="twitter:image" :content=contentImage />
     </Head>
    </div>
 </template>
@@ -41,7 +41,9 @@ const id = route.params.id
 const { data: dataPostRespone } = await useFetch(`${baseApiUrl}api/posts/11354275`)
 dataPostDetial.value = dataPostRespone.value
 const contentTitle = ref('')
-contentTitle.value = 'contentTitle' + new Date().getTime()
+const contentImage = ref('')
+contentTitle.value = dataPostRespone.value?.meta?.title ? dataPostRespone.value?.meta?.title + new Date().getTime() :  new Date().getTime()
+contentImage.value = dataPostRespone.value?.meta?.image ?? ''
 
 
 // useSeoMeta({
