@@ -36,7 +36,7 @@ const getPosts = async () => {
 };
 
 const toDetail = (title, id) => {
-  router.push({ name: "post-adid-id", params: { id: id } });
+  router.push({ name: "test-share-adid-id", params: { id: id } });
 };
 
 const share = async (post) => {
