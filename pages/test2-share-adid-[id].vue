@@ -1,13 +1,13 @@
 <template>
   <div>
     <Head>
-      <Title>My default title {{ new Date().getTime() }}</Title>
+      <Title>{{ contentTitle }}</Title>
       <Meta property="og:type" content="article" />
       <Meta property="og:title" :content=contentTitle />
       <Meta property="og:description" content="Senior Selachimorpha at DigitalOcean Edit" />
       <Meta property="og:url" :content=contentImage />
       <Meta name="twitter:card" content="summary_large_image" />
-      <Meta name="twitter:site" content="https://test-share-seo.netlify.app/test6-share" />
+      <Meta name="twitter:site" :content=contentUrl />
       <Meta name="twitter:title" :content=contentTitle />
       <Meta name="twitter:description" content="Senior Selachimorpha at DigitalOcean Edit" />
       <Meta name="twitter:image" :content=contentImage />
@@ -30,8 +30,11 @@ dataPostDetial.value = dataPostRespone.value
 
 const contentTitle = ref('')
 const contentImage = ref('')
+const contentUrl = ref('')
+
 contentTitle.value = dataPostRespone.value?.meta?.title ? dataPostRespone.value.meta.title + new Date().getTime() :  new Date().getTime()
 contentImage.value = dataPostRespone.value?.meta?.image ?? ''
+contentUrl.value = dataPostRespone.value?.meta?.url ?? ''
 
 
 
