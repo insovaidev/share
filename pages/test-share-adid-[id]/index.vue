@@ -14,30 +14,23 @@ const dataPostDetial = ref('')
 const baseApiUrl = `https://test-post-share-api.onrender.com/`
 const id = route.params.id
 
-
-
-const { data: dataPostRespone } = await useFetch(`${baseApiUrl}api/posts/${id}`)
-dataPostDetial.value = dataPostRespone.value
-
-const title = computed(() => dataPostDetial.value?.meta?.title ?? '')
-const description = computed(() => dataPostDetial.value?.meta?.title ?? '')
-const image = computed(() => dataPostDetial.value?.meta?.image ?? '')
-const url = computed(() => dataPostDetial.value?.meta?.url ?? '')
-
-
 useSeoMeta({
   title: 'default title.',
-  ogTitle: title,
-  ogDescription: description,
-  ogImage: image,
-  ogUrl: url,
-  twitterTitle: title,
-  twitterDescription: description,
-  twitterImage: image,
+  ogTitle: () => dataPostDetial.value.meta.title,
+  ogDescription: () => dataPostDetial.value.meta.title,
+  ogImage: () => dataPostDetial.value.meta.image,
+  ogUrl: () => dataPostDetial.value.meta.url,
+  twitterTitle: () => dataPostDetial.value.meta.title,
+  twitterDescription: () => dataPostDetial.value.meta.title,
+  twitterImage: () => dataPostDetial.value.meta.image,
   twitterCard: 'summary',
   ogImageWidth: 1200,
   ogImageHeight: 630
 })
+
+
+const { data: dataPostRespone } = await useFetch(`${baseApiUrl}api/posts/${id}`)
+dataPostDetial.value = dataPostRespone.value
 
 
 const share = async (post) => {
