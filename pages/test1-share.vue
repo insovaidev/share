@@ -5,10 +5,10 @@
       <Meta property="og:type" content="article" />
       <Meta property="og:title" content="Sammy the Shark Edit" />
       <Meta property="og:description" content="Senior Selachimorpha at DigitalOcean Edit" />
-      <Meta property="og:url" content="https://test-share-seo.netlify.app/test-share" />
+      <Meta property="og:url" content="https://test-share-seo.netlify.app/test1-share" />
       <Meta property="og:image" content="https://images.khmer24.co/24-09-04/scoopy-i-015--775039172541923673824722-b.jpg" />
       <Meta name="twitter:card" content="summary_large_image" />
-      <Meta name="twitter:site" content="https://test-share-seo.netlify.app/test-share" />
+      <Meta name="twitter:site" content="https://test-share-seo.netlify.app/test1-share" />
       <Meta name="twitter:title" content="Sammy the Shark Edit" />
       <Meta name="twitter:description" content="Senior Selachimorpha at DigitalOcean Edit" />
       <Meta name="twitter:image" content="https://images.khmer24.co/24-09-04/scoopy-i-015--775039172541923673824722-b.jpg" />
