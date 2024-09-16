@@ -16,20 +16,20 @@ const id = route.params.id
 
 useSeoMeta({
   title: 'default title.',
-  ogTitle: () => dataPostDetial.value.meta.title,
-  ogDescription: () => dataPostDetial.value.meta.title,
-  ogImage: () => dataPostDetial.value.meta.image,
-  ogUrl: () => dataPostDetial.value.meta.url,
-  twitterTitle: () => dataPostDetial.value.meta.title,
-  twitterDescription: () => dataPostDetial.value.meta.title,
-  twitterImage: () => dataPostDetial.value.meta.image,
+  ogTitle: () => dataPostDetial.value?.meta?.title ?? '',
+  ogDescription: () => dataPostDetial.value?.meta?.title ?? '',
+  ogImage: () => dataPostDetial.value?.meta?.image ?? '',
+  ogUrl: () => dataPostDetial.value?.meta?.url ?? '',
+  twitterTitle: () => dataPostDetial.value?.meta?.title ?? '',
+  twitterDescription: () => dataPostDetial.value?.meta?.title ?? '',
+  twitterImage: () => dataPostDetial.value?.meta?.image ?? '',
   twitterCard: 'summary',
   ogImageWidth: 1200,
   ogImageHeight: 630
 })
 
 
-const { data: dataPostRespone } = await useFetch(`${baseApiUrl}api/posts/${id}`)
+const { data: dataPostRespone } = useFetch(`${baseApiUrl}api/posts/${id}`)
 dataPostDetial.value = dataPostRespone.value
 
 
