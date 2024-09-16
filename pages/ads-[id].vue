@@ -5,7 +5,7 @@
       <Meta property="og:type" content="article" />
       <Meta property="og:title" :content=contentTitle />
       <Meta property="og:description" content="Senior Selachimorpha at DigitalOcean Edit" />
-      <Meta property="og:url" :content=contentImage />
+      <Meta property="og:url" :content=contentUrl />
       <Meta name="twitter:card" content="summary_large_image" />
       <Meta name="twitter:site" :content=contentUrl />
       <Meta name="twitter:title" :content=contentTitle />
