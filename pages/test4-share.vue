@@ -1,7 +1,7 @@
 <template>
    <div>
     <pre>{{ dataPostDetial?.meta ?? ''}}</pre>
-    <!-- <Head>
+    <Head>
       <Title>My default title {{ new Date().getTime() }}</Title>
       <Meta property="og:type" content="article" />
       <Meta property="og:title" content="Sammy the Shark Edit" />
@@ -9,11 +9,11 @@
       <Meta property="og:url" content="https://test-share-seo.netlify.app/test1-share" />
       <Meta property="og:image" content="https://images.khmer24.co/24-09-04/scoopy-i-015--775039172541923673824722-b.jpg" />
       <Meta name="twitter:card" content="summary_large_image" />
-      <Meta name="twitter:site" content="https://test-share-seo.netlify.app/test1-share" />
+      <Meta name="twitter:site" content="https://test-share-seo.netlify.app/test4-share" />
       <Meta name="twitter:title" content="Sammy the Shark Edit" />
       <Meta name="twitter:description" content="Senior Selachimorpha at DigitalOcean Edit" />
       <Meta name="twitter:image" content="https://images.khmer24.co/24-09-04/scoopy-i-015--775039172541923673824722-b.jpg" />
-    </Head> -->
+    </Head>
    </div>
 </template>
 
@@ -41,15 +41,15 @@ const id = route.params.id
 const { data: dataPostRespone } = await useFetch(`${baseApiUrl}api/posts/11354275`)
 dataPostDetial.value = dataPostRespone.value
 
-useSeoMeta({
-  title: () => `${dataPostDetial.value?.meta?.title ?? new Date().getTime()}`,
-  ogTitle: () => `${dataPostDetial.value?.meta?.title ?? new Date().getTime()}`,
-  description: () => 'This is my amazing site, let me tell you all about it.',
-  ogDescription: () => 'This is my amazing site, let me tell you all about it.',
-  ogUrl: () => `https://test-share-seo.netlify.app/test2-share`, 
-  ogImage: () => `${ dataPostDetial.value?.meta?.image ?? '' }`,
-  twitterCard: () => 'summary_large_image',
-})
+// useSeoMeta({
+//   title: () => `${dataPostDetial.value?.meta?.title ?? new Date().getTime()}`,
+//   ogTitle: () => `${dataPostDetial.value?.meta?.title ?? new Date().getTime()}`,
+//   description: () => 'This is my amazing site, let me tell you all about it.',
+//   ogDescription: () => 'This is my amazing site, let me tell you all about it.',
+//   ogUrl: () => `https://test-share-seo.netlify.app/test2-share`, 
+//   ogImage: () => `${ dataPostDetial.value?.meta?.image ?? '' }`,
+//   twitterCard: () => 'summary_large_image',
+// })
 
 
 </script>
