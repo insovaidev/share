@@ -32,15 +32,28 @@
 //   ogImageHeight: 630
 // })
 
+const route = useRoute()
+const dataPostDetial = ref('')
+const baseApiUrl = `https://test-post-share-api.onrender.com/`
+const id = route.params.id
+
+const { data: dataPostRespone } = await useFetch(`${baseApiUrl}api/posts/11354275`)
+dataPostDetial.value = dataPostRespone.value
+
+
 useSeoMeta({
-  title: () => 'My Amazing Site' + new Date().getTime() ,
-  ogTitle: () => 'My Amazing Site',
+  title: () => `${dataPostDetial.value?.meta?.title ?? new Date().getTime()}`,
+  ogTitle: () => `${dataPostDetial.value?.meta?.title ?? new Date().getTime()}`,
   description: () => 'This is my amazing site, let me tell you all about it.',
   ogDescription: () => 'This is my amazing site, let me tell you all about it.',
-  ogUrl: () => 'https://test-share-seo.netlify.app/test2-share', 
-  ogImage: () => 'https://images.khmer24.co/24-09-04/scoopy-i-015--775039172541923673824722-b.jpg',
+  ogUrl: () => `${ dataPostDetial.value?.meta?.url ?? '' }`, 
+  ogImage: () => `${ dataPostDetial.value?.meta?.image ?? '' }`,
   twitterCard: () => 'summary_large_image',
 })
+
+
+
+
 
 </script>
 
