@@ -15,7 +15,6 @@
     <p>details post</p>
     <button @click="share(dataPostDetial)">Shere</button>
     <img :src="dataPostDetial?.meta?.image ?? ''" alt="">
-    <img src="https://images.khmer24.co/24-09-04/scoopy-i-015--775039172541923673824722-b.jpg" alt="">
     <pre>{{ dataPostDetial?.meta ?? ''}}</pre>
   </div>
 </template>
