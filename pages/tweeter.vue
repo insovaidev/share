@@ -24,7 +24,7 @@ useHead({
     { name: 'twitter:card', content: 'summary' },
     { name: 'twitter:site', content: '@nytimesbits' },
     { name: 'twitter:creator', content: '@nickbilton' },
-    { name: 'twitter:image', content: 'https://images.khmer24.co/24-04-23/111248-business-house-for-rent-on-main-road-way-to-angkor-wat-1713857765-79938271-b.jpg' }
+    { name: 'twitter:image', content: 'https://images.khmer24.co/24-09-04/scoopy-i-015--775039172541923673824722-b.jpg' }
   ]
 })
 
