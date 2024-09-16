@@ -4,13 +4,13 @@
     <Head>
       <Title>My default title {{ new Date().getTime() }}</Title>
       <Meta property="og:type" content="article" />
-      <Meta property="og:title" content="Sammy the Shark Edit" />
+      <Meta property="og:title" :content=contentTitle />
       <Meta property="og:description" content="Senior Selachimorpha at DigitalOcean Edit" />
       <Meta property="og:url" content="https://test-share-seo.netlify.app/test1-share" />
       <Meta property="og:image" content="https://images.khmer24.co/24-09-04/scoopy-i-015--775039172541923673824722-b.jpg" />
       <Meta name="twitter:card" content="summary_large_image" />
-      <Meta name="twitter:site" content="https://test-share-seo.netlify.app/test4-share" />
-      <Meta name="twitter:title" content="Sammy the Shark Edit" />
+      <Meta name="twitter:site" content="https://test-share-seo.netlify.app/test5-share" />
+      <Meta name="twitter:title" :content=contentTitle />
       <Meta name="twitter:description" content="Senior Selachimorpha at DigitalOcean Edit" />
       <Meta name="twitter:image" content="https://images.khmer24.co/24-09-04/scoopy-i-015--775039172541923673824722-b.jpg" />
     </Head>
@@ -40,6 +40,9 @@ const id = route.params.id
 
 const { data: dataPostRespone } = await useFetch(`${baseApiUrl}api/posts/11354275`)
 dataPostDetial.value = dataPostRespone.value
+const contentTitle = ref('')
+contentTitle.value = 'contentTitle' + new Date().getTime()
+
 
 // useSeoMeta({
 //   title: () => `${dataPostDetial.value?.meta?.title ?? new Date().getTime()}`,
