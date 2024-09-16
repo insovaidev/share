@@ -37,6 +37,7 @@ useSeoMeta({
   ogTitle: () => 'My Amazing Site',
   description: () => 'This is my amazing site, let me tell you all about it.',
   ogDescription: () => 'This is my amazing site, let me tell you all about it.',
+  ogUrl: () => 'https://test-share-seo.netlify.app/test2-share', 
   ogImage: () => 'https://images.khmer24.co/24-09-04/scoopy-i-015--775039172541923673824722-b.jpg',
   twitterCard: () => 'summary_large_image',
 })
