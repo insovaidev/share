@@ -9,51 +9,35 @@
 </template>
 
 <script setup>
-
 const route = useRoute()
-
-onMounted(() => {
-  console.log()
-})
-
-const dataPostDetial = useState('dataPostDetial', () => '')
+const dataPostDetial = ref('')
 const baseApiUrl = `https://test-post-share-api.onrender.com/`
-
-useSeoMeta({
-  title: () => `title: ${dataPostDetial.value?.meta?.title ?? ''}`,
-  ogTitle: () => `ogTitle: ${dataPostDetial.value?.meta?.title ?? ''}`,
-  ogDescription: () => `ogDescription: ${dataPostDetial.value?.meta?.title ?? ''}`,
-  ogImage: () => `ogImage: ${dataPostDetial.value?.meta?.image ?? ''}`,
-  ogUrl: () => `ogUrl: ${dataPostDetial.value?.meta?.url ?? ''}`,
-  twitterTitle: () => `twitterTitle: ${dataPostDetial.value?.meta?.title ?? ''}`,
-  twitterDescription: () => `twitterDescription: ${dataPostDetial.value?.meta?.title ?? ''}`,
-  twitterImage: () => `twitterImage: ${dataPostDetial.value?.meta?.image ?? ''}`,
-  twitterCard: 'summary',
-  ogImageWidth: 1200,  
-  ogImageHeight: 630
-})
-
-
 const id = route.params.id
-const title = route.params.title
+
+
 
 const { data: dataPostRespone } = await useFetch(`${baseApiUrl}api/posts/${id}`)
-
 dataPostDetial.value = dataPostRespone.value
 
+const title = computed(() => dataPostDetial.value?.meta?.title ?? '')
+const description = computed(() => dataPostDetial.value?.meta?.title ?? '')
+const image = computed(() => dataPostDetial.value?.meta?.image ?? '')
+const url = computed(() => dataPostDetial.value?.meta?.url ?? '')
 
-// const getPostDetail = async () => {
-//    try {
-//       const res = await $fetch(`${baseApiUrl}api/posts/${id}`)
-//       if (res) {
-//         dataPostDetial.value = res  
-//       }
-//    } catch (error) {
-//       console.error(error)
-//    }
-// }
 
-// getPostDetail()
+useSeoMeta({
+  title: 'default title.',
+  ogTitle: title,
+  ogDescription: description,
+  ogImage: image,
+  ogUrl: url,
+  twitterTitle: title,
+  twitterDescription: description,
+  twitterImage: image,
+  twitterCard: 'summary',
+  ogImageWidth: 1200,
+  ogImageHeight: 630
+})
 
 
 const share = async (post) => {
@@ -76,22 +60,5 @@ const share = async (post) => {
     alert("Sharing not supported in your browser");
   }
 };
-
-const getArticlesRoutes = async () => {
-  const url = "https://test-post-share-api.onrender.com";
-  const posts = await $fetch(url + "/api/posts");
-  const routes = [] 
-  posts.map((post) => {
-    routes.push(`/posdt-adid-${post.data.id}`)
-  });
-
-  return routes
-};
-
-
-onMounted(async () => {
-  const res = await getArticlesRoutes()
-  console.log(res)
-})
 
 </script>
