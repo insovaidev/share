@@ -30,6 +30,7 @@ const { data: dataPostRespone } = await useFetch(`${baseApiUrl}api/posts/${id}`)
 dataPostDetial.value = dataPostRespone.value
 const contentTitle = ref('')
 const contentImage = ref('')
+// const contentImage = ref('')
 contentTitle.value = dataPostRespone.value?.meta?.title ? dataPostRespone.value.meta.title + new Date().getTime() :  new Date().getTime()
 contentImage.value = dataPostRespone.value?.meta?.image ?? ''
 
