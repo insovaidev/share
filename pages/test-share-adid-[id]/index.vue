@@ -14,6 +14,9 @@ const dataPostDetial = ref('')
 const baseApiUrl = `https://test-post-share-api.onrender.com/`
 const id = route.params.id
 
+const { data: dataPostRespone } = await useFetch(`${baseApiUrl}api/posts/${id}`)
+dataPostDetial.value = dataPostRespone.value
+
 useSeoMeta({
   title: 'default title.',
   ogTitle: () => dataPostDetial.value?.meta?.title ?? '',
@@ -29,8 +32,7 @@ useSeoMeta({
 })
 
 
-const { data: dataPostRespone } = useFetch(`${baseApiUrl}api/posts/${id}`)
-dataPostDetial.value = dataPostRespone.value
+
 
 
 const share = async (post) => {
