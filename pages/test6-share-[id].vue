@@ -37,7 +37,7 @@ const dataPostDetial = ref('')
 const baseApiUrl = `https://test-post-share-api.onrender.com/`
 const id = route.params.id
 
-const { data: dataPostRespone } = await useFetch(`${baseApiUrl}api/posts/10839187`)
+const { data: dataPostRespone } = await useFetch(`${baseApiUrl}api/posts/${id}`)
 dataPostDetial.value = dataPostRespone.value
 const contentTitle = ref('')
 const contentImage = ref('')
