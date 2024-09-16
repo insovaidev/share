@@ -32,9 +32,6 @@ useSeoMeta({
 })
 
 
-
-
-
 const share = async (post) => {
   if (navigator.share) {
     try {
