@@ -18,7 +18,7 @@ const { data: dataPostRespone } = await useFetch(`${baseApiUrl}api/posts/${id}`)
 dataPostDetial.value = dataPostRespone.value
 
 useSeoMeta({
-  title: 'default title.',
+  title: () => dataPostDetial.value?.meta?.title ?? 'My default title',
   ogTitle: () => dataPostDetial.value?.meta?.title ?? '',
   ogDescription: () => dataPostDetial.value?.meta?.title ?? '',
   ogImage: () => dataPostDetial.value?.meta?.image ?? '',
