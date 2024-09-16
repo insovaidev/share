@@ -1,5 +1,6 @@
 <template>
    <div>
+    <pre>{{ dataPostDetial?.meta ?? ''}}</pre>
     <!-- <Head>
       <Title>My default title {{ new Date().getTime() }}</Title>
       <Meta property="og:type" content="article" />
@@ -40,7 +41,6 @@ const id = route.params.id
 const { data: dataPostRespone } = await useFetch(`${baseApiUrl}api/posts/11354275`)
 dataPostDetial.value = dataPostRespone.value
 
-
 useSeoMeta({
   title: () => `${dataPostDetial.value?.meta?.title ?? new Date().getTime()}`,
   ogTitle: () => `${dataPostDetial.value?.meta?.title ?? new Date().getTime()}`,
@@ -50,8 +50,6 @@ useSeoMeta({
   ogImage: () => `${ dataPostDetial.value?.meta?.image ?? '' }`,
   twitterCard: () => 'summary_large_image',
 })
-
-
 
 
 </script>
