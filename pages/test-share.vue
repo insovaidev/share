@@ -1,6 +1,7 @@
 <template>
    <div>
     <Head>
+      <Title>My default title {{ new Date().getTime() }}</Title>
       <Meta property="og:type" content="article" />
       <Meta property="og:title" content="Sammy the Shark Edit" />
       <Meta property="og:description" content="Senior Selachimorpha at DigitalOcean Edit" />
