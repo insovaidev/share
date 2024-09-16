@@ -1,6 +1,6 @@
 <template>
    <div>
-    <Head>
+    <!-- <Head>
       <Title>My default title {{ new Date().getTime() }}</Title>
       <Meta property="og:type" content="article" />
       <Meta property="og:title" content="Sammy the Shark Edit" />
@@ -12,7 +12,7 @@
       <Meta name="twitter:title" content="Sammy the Shark Edit" />
       <Meta name="twitter:description" content="Senior Selachimorpha at DigitalOcean Edit" />
       <Meta name="twitter:image" content="https://images.khmer24.co/24-09-04/scoopy-i-015--775039172541923673824722-b.jpg" />
-    </Head>
+    </Head> -->
    </div>
 </template>
 
@@ -31,6 +31,15 @@
 //   ogImageWidth: 1200,  
 //   ogImageHeight: 630
 // })
+
+useSeoMeta({
+  title: () => 'My Amazing Site',
+  ogTitle: () => 'My Amazing Site',
+  description: () => 'This is my amazing site, let me tell you all about it.',
+  ogDescription: () => 'This is my amazing site, let me tell you all about it.',
+  ogImage: () => 'https://images.khmer24.co/24-09-04/scoopy-i-015--775039172541923673824722-b.jpg',
+  twitterCard: () => 'summary_large_image',
+})
 
 </script>
 
