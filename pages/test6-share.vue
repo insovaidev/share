@@ -6,8 +6,7 @@
       <Meta property="og:type" content="article" />
       <Meta property="og:title" :content=contentTitle />
       <Meta property="og:description" content="Senior Selachimorpha at DigitalOcean Edit" />
-      <Meta property="og:url" content="https://test-share-seo.netlify.app/test1-share" />
-      <Meta property="og:image" content="https://images.khmer24.co/24-09-04/scoopy-i-015--775039172541923673824722-b.jpg" />
+      <Meta property="og:url" :content=contentImage />
       <Meta name="twitter:card" content="summary_large_image" />
       <Meta name="twitter:site" content="https://test-share-seo.netlify.app/test6-share" />
       <Meta name="twitter:title" :content=contentTitle />
