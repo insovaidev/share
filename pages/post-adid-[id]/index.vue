@@ -20,7 +20,6 @@ onMounted(() => {
 })
 
 const dataPostDetial = useState('dataPostDetial', () => '')
-// const baseApiUrl = `http://localhost:1234/`
 const baseApiUrl = `https://test-post-share-api.onrender.com/`
 
 useSeoMeta({
@@ -38,6 +37,11 @@ useSeoMeta({
 })
 
 
+
+
+       
+
+
 const id = route.params.id
 const title = route.params.title
 
@@ -45,7 +49,6 @@ const { data: dataPostRespone } = await useFetch(`${baseApiUrl}api/posts/${id}`)
 
 dataPostDetial.value = dataPostRespone.value
 
-// console.log('serve side', dataPostDetial.value.meta)
 
 // const getPostDetail = async () => {
 //    try {
@@ -93,13 +96,31 @@ const getArticlesRoutes = async () => {
   return routes
 };
 
+const setTweeterMata = () => {
+  const mata
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@nytimesbits" />
+  <meta name="twitter:creator" content="@nickbilton" />
+  <meta name="twitter:image" content="https://images.com/image.jpg" />
+}
+
+
+
+function adjustViewport() {
+      let viewportMetaTag = document.querySelector('meta[name="viewport"]');
+        if (window.innerWidth > 768) {
+            viewportMetaTag.setAttribute('content', `width=device-width, initial-scale=0`);
+        } else {
+            viewportMetaTag.setAttribute('content', 'width=device-width, initial-scale=1');
+        }
+  }
+
+
+
 onMounted(async () => {
   const res = await getArticlesRoutes()
-  
   console.log(res)
-
 })
-
 
 
 </script>
