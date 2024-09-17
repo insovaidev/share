@@ -1,14 +1,15 @@
 <template>
   <div>
     <Head>
-      <Title>{{ contentTitle }}</Title>
+      <Title>{{ truncatedTitle }}</Title>
       <Meta property="og:type" content="article" />
-      <Meta property="og:title" :content=contentTitle />
+      <Meta property="og:title" :content=truncatedTitle />
       <Meta property="og:description" content="Senior Selachimorpha at DigitalOcean Edit" />
       <Meta property="og:url" :content=contentUrl />
+      <Meta property="og:image" :content="contentImage" />
       <Meta name="twitter:card" content="summary_large_image" />
       <Meta name="twitter:site" content='@nytimes' />
-      <Meta name="twitter:title" :content=contentTitle />
+      <Meta name="twitter:title" :content=truncatedTitle />
       <Meta name="twitter:description" content="Senior Selachimorpha at DigitalOcean Edit" />
       <Meta name="twitter:image" :content=contentImage />
     </Head>
@@ -36,7 +37,14 @@ contentTitle.value = dataPostRespone.value?.meta?.title ? dataPostRespone.value.
 contentImage.value = dataPostRespone.value?.meta?.image + `?${ new Date().getTime() }` ?? ''
 contentUrl.value = `https://test-share-seo.netlify.app/ads-${id}`
 
-console.log(contentImage.value)
+
+// Truncate title for social media
+const truncateTitle = (title, maxLength) => {
+  return title.length > maxLength ? title.slice(0, maxLength - 3) + '...' : title;
+}
+const truncatedTitle = ref(truncateTitle(contentTitle.value, 70))
+
+
 
 const share = async (post) => {
   if (navigator.share) {
