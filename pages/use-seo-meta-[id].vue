@@ -7,12 +7,19 @@
 
 <script setup>
 
+const route = useRoute()
+const baseApiUrl = `https://test-post-share-api.onrender.com/`
+const id = route.params.id
+const dataPostDetial = ref('')
+const contentTitle = ref('')
+const contentImage = ref('')
+
 useSeoMeta({
   title: 'My Amazing Site Tweeter just edit' + ' ' + new Date().getTime(),
   ogTitle: 'My Amazing Site Tweeter just edit' + ' ' + new Date().getTime(),
   ogDescription: 'This is my amazing site, let me tell you all about it. Tweeter',
   ogImage: 'https://images.khmer24.co/23-09-19/s-173807--1695116446-63078656-b.jpg',
-  ogUrl: 'https://test-share-seo.netlify.app/new-test-share', 
+  ogUrl: () => `https://test-share-seo.netlify.app/use-seo-meta-${id}`, 
   twitterTitle: 'My Amazing Site Tweeter just edit' + ' ' + new Date().getTime(),
   twitterDescription: 'This is my amazing site, let me tell you all about it Tweeter just edit',
   twitterImage: 'https://images.khmer24.co/23-09-19/s-173807--1695116446-63078656-b.jpg',
@@ -21,12 +28,7 @@ useSeoMeta({
   ogImageHeight: 630
 })
 
-const route = useRoute()
-const baseApiUrl = `https://test-post-share-api.onrender.com/`
-const id = route.params.id
-const dataPostDetial = ref('')
-const contentTitle = ref('')
-const contentImage = ref('')
+
 
 const { data: dataPostRespone } = await useFetch(`${baseApiUrl}api/posts/${id}`)
 dataPostDetial.value = dataPostRespone.value
