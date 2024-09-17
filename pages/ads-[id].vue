@@ -1,3 +1,5 @@
+
+
 <template>
   <div>
     <Head>
@@ -38,14 +40,11 @@ contentTitle.value = dataPostRespone.value?.meta?.title ? dataPostRespone.value.
 contentImage.value = dataPostRespone.value?.meta?.image + `?utm_source=Whatever` ?? ''
 contentUrl.value = `https://test-share-seo.netlify.app/ads-${id}?${new Date().getTime()}`
 
-
 // Truncate title for social media
 const truncateTitle = (title, maxLength) => {
   return title.length > maxLength ? title.slice(0, maxLength - 3) + '...' : title;
 }
 const truncatedTitle = ref(truncateTitle(contentTitle.value, 70))
-
-
 
 const share = async (post) => {
   if (navigator.share) {
