@@ -1,7 +1,6 @@
    <template>
   <div class="p-4">
     <div
-      
       :key="post"
       v-for="post in dataPosts"
       class="list_post"
