@@ -7,7 +7,7 @@
       <Meta property="og:description" content="Senior Selachimorpha at DigitalOcean Edit" />
       <Meta property="og:url" :content=contentUrl />
       <Meta name="twitter:card" content="summary_large_image" />
-      <Meta name="twitter:site" :content=contentUrl />
+      <Meta name="twitter:site" content='@nytimes' />
       <Meta name="twitter:title" :content=contentTitle />
       <Meta name="twitter:description" content="Senior Selachimorpha at DigitalOcean Edit" />
       <Meta name="twitter:image" :content=contentImage />
@@ -33,10 +33,10 @@ const contentImage = ref('')
 const contentUrl = ref('')
 
 contentTitle.value = dataPostRespone.value?.meta?.title ? dataPostRespone.value.meta.title + '-' + new Date().getTime() :  new Date().getTime()
-contentImage.value = dataPostRespone.value?.meta?.image ?? ''
+contentImage.value = dataPostRespone.value?.meta?.image + `?${ new Date().getTime() }` ?? ''
 contentUrl.value = `https://test-share-seo.netlify.app/ads-${id}`
 
-
+console.log(contentImage.value)
 
 const share = async (post) => {
   if (navigator.share) {

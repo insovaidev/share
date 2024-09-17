@@ -33,7 +33,7 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxtjs/tailwindcss',
-    'nuxt-jsonld',
+    'nuxt-jsonld',  
     '@nuxtjs/device',
     'nuxt-jsonld'
   ],
