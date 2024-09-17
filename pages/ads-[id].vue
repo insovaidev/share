@@ -8,6 +8,7 @@
       <Meta property="og:url" :content=contentUrl />
       <Meta property="og:image" :content="contentImage" />
       <Meta name="twitter:card" content="summary_large_image" />
+      <Meta name="twitter:url" :content="contentUrl" />
       <Meta name="twitter:site" content='@nytimes' />
       <Meta name="twitter:title" :content=truncatedTitle />
       <Meta name="twitter:description" content="Senior Selachimorpha at DigitalOcean Edit" />
@@ -35,7 +36,7 @@ const contentUrl = ref('')
 
 contentTitle.value = dataPostRespone.value?.meta?.title ? dataPostRespone.value.meta.title + '-' + new Date().getTime() :  new Date().getTime()
 contentImage.value = dataPostRespone.value?.meta?.image + `?utm_source=Whatever` ?? ''
-contentUrl.value = `https://test-share-seo.netlify.app/ads-${id}`
+contentUrl.value = `https://test-share-seo.netlify.app/ads-${id}?${new Date().getTime()}`
 
 
 // Truncate title for social media
