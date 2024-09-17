@@ -40,8 +40,10 @@ useSeoMeta({
   ogDescription: () => 'contentTitle',
   ogUrl: () => () => `https://test-share-seo.netlify.app/use-seo-meta-${id}`, 
   ogImage: () => `${contentImage.value}`,
-  twitterSite: '@in_sovai',
+  
+  twitterSite: () => '@in_sovai',
   twitterTitle: () => `${contentTitle.value}`,
+  twitterDescription: () => `${contentTitle.value}`,
   twitterCard: () => 'summary_large_image',
   twitterImage: () => `${contentImage.value}`,
 })

@@ -1,19 +1,33 @@
    <template>
   <div class="p-4">
-    <div
-      :key="post"
-      v-for="post in dataPosts"
-      class="list_post"
-    >
-    <div @click="toDetail(post.data.title, post.data.id)" class="border-[1px] rounded-md mb-2 p-2">
-      <p>{{ post.data.id }}</p>
-      <p>{{ post.data.title }}</p>
-    </div>
-    <div class="gap-3">
-      <button class="border-[1px] border-gray-500 rounded-md px-3 py-1" @click="share(post)">Shere</button>
-      <button  class="border-[1px] border-gray-500 rounded-md px-3 py-1" @click="shareToX(post.data.short_link)">shareToX</button>
-      <button class="border-[1px] border-gray-500 rounded-md px-3 py-1" @click="shareLinkToFacebook(post.data.short_link)">shareLinkToFacebook</button>
-    </div>
+    <div :key="post" v-for="post in dataPosts" class="list_post">
+      <div
+        @click="toDetail(post.data.title, post.data.id)"
+        class="border-[1px] rounded-md mb-2 p-2"
+      >
+        <p>{{ post.data.id }}</p>
+        <p>{{ post.data.title }}</p>
+      </div>
+      <div class="gap-3">
+        <button
+          class="border-[1px] border-gray-500 rounded-md px-3 py-1"
+          @click="share(post)"
+        >
+          Shere
+        </button>
+        <button
+          class="border-[1px] border-gray-500 rounded-md px-3 py-1"
+          @click="shareToX(post.data.short_link)"
+        >
+          shareToX
+        </button>
+        <button
+          class="border-[1px] border-gray-500 rounded-md px-3 py-1"
+          @click="shareLinkToFacebook(post.data.short_link)"
+        >
+          shareLinkToFacebook
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -62,31 +76,36 @@ const share = async (post) => {
 const shareToX = (uri) => {
   try {
     if (window.navigator.onLine) {
-      let url = uri
-      window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(''+url+''),'facebook-share-dialog','width=626,height=436');
+      let url = uri;
+      window.open(
+        "https://twitter.com/intent/tweet?text=" +
+          encodeURIComponent("" + url + ""),
+        "facebook-share-dialog",
+        "width=626,height=436"
+      );
       return false;
     } else {
-      return $('#modal_show_statu_error_connection').modal('show');
+      return $("#modal_show_statu_error_connection").modal("show");
     }
-  } catch (error) {
-    
-  }
-} 
-
+  } catch (error) {}
+};
 
 const shareLinkToFacebook = (uri) => {
   try {
     if (window.navigator.onLine) {
-      let url = uri
-      window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(''+url+''),'facebook-share-dialog','width=626,height=436');
+      let url = uri;
+      window.open(
+        "https://www.facebook.com/sharer/sharer.php?u=" +
+          encodeURIComponent("" + url + ""),
+        "facebook-share-dialog",
+        "width=626,height=436"
+      );
       return false;
-  } else {
-      return $('#modal_show_status_error_connection').modal('show');
-  }
-  } catch (error) {
-    
-  }
-} 
+    } else {
+      return $("#modal_show_status_error_connection").modal("show");
+    }
+  } catch (error) {}
+};
 
 onMounted(() => {
   getPosts();
@@ -94,7 +113,8 @@ onMounted(() => {
 });
 </script>
 
-   <style >
+
+<style >
 .list_post {
   position: relative;
   border: 1px solid lightblue;
