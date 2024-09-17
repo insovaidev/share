@@ -32,9 +32,9 @@ const contentTitle = ref('')
 const contentImage = ref('')
 const contentUrl = ref('')
 
-contentTitle.value = dataPostRespone.value?.meta?.title ? dataPostRespone.value.meta.title + ' ' + new Date().getTime() :  new Date().getTime()
+contentTitle.value = dataPostRespone.value?.meta?.title ? dataPostRespone.value.meta.title + '-' + new Date().getTime() :  new Date().getTime()
 contentImage.value = dataPostRespone.value?.meta?.image ?? ''
-contentUrl.value = dataPostRespone.value?.meta?.url ?? ''
+contentUrl.value = `https://test-share-seo.netlify.app/ads-${id}`
 
 
 
