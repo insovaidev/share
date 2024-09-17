@@ -30,7 +30,7 @@ const contentImage = ref('')
 
 const { data: dataPostRespone } = await useFetch(`${baseApiUrl}api/posts/${id}`)
 dataPostDetial.value = dataPostRespone.value
-contentTitle.value = dataPostRespone.value?.meta?.title ? dataPostRespone.value.meta.title + ' ' +new Date().getTime() :  new Date().getTime()
+contentTitle.value = dataPostRespone.value?.meta?.title ? dataPostRespone.value.meta.title + ' ' + new Date().getTime() :  new Date().getTime()
 contentImage.value = dataPostRespone.value?.meta?.image ?? ''
 
 useSeoMeta({
@@ -40,6 +40,7 @@ useSeoMeta({
   ogDescription: () => 'contentTitle',
   ogUrl: () => () => `https://test-share-seo.netlify.app/use-seo-meta-${id}`, 
   ogImage: () => `${contentImage.value}`,
+  twitterSite: '@in_sovai',
   twitterTitle: () => `${contentTitle.value}`,
   twitterCard: () => 'summary_large_image',
   twitterImage: () => `${contentImage.value}`,
