@@ -8,6 +8,10 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
+  css: [
+    '~/assets/css/main.css'  // Path to your custom CSS
+  ],
+
   modules: [
     '@nuxtjs/tailwindcss',
     'nuxt-jsonld',  
@@ -18,10 +22,16 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2024-09-13',
 
-  nitro: {
-    prerender: {
-      crawlLinks: true,
-      routes: ["/sitemap.xml", "/robots.txt"],
-    },
+  sitemap: {
+    
   },
+
+  // nitro: {
+  //   s
+  //   prerender: {
+      
+  //     crawlLinks: true,
+  //     routes: ["/sitemap.xml", "/robots.txt"],
+  //   },
+  // },
 })
